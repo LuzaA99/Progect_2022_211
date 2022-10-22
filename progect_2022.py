@@ -27,16 +27,17 @@ def return_random_str(filename: str) -> str:
 def send_mov_or_ser(message):
     if message.text.lower() == "movies":
         x = return_random_str('/Users/lizaakopova/PycharmProjects/pythonProject1/movies22.csv')
-        message_list = x.split(',')
+        message_list = x.split(';')
         movie = "Movie:" + message_list[1]
-        ganre = 'Ganre:' + message_list[2]
-        bot.send_message(message.chat.id, f'{movie}\n{ganre}')
+        genre = 'Genre:' + message_list[2]
+        bot.send_message(message.chat.id, f'{movie}\n{genre}')
     elif message.text.lower() == "serials":
         x = return_random_str('/Users/lizaakopova/PycharmProjects/pythonProject1/tv_shows_data.csv')
-        message_list = x.split(',')
+        message_list = x.split(';')
         serial = "Serial:" + message_list[1]
-        ganre = 'Ganre:' + message_list[2]
-        bot.send_message(message.chat.id, f'{serial}\n{ganre}')
+        genre = 'Genre:' + message_list[2]
+        seasons = 'Seasons' + message_list[3]
+        bot.send_message(message.chat.id, f'{serial}\n{genre}\n{seasons}')
 
 
 bot.polling(none_stop=True)
