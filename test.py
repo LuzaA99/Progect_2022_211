@@ -6,7 +6,6 @@ def return_random_str(filename: str, idx) -> str:
         file = list(map(str.strip, fin))
         return file[idx]
 
-
 class TestCaseMovie(TestCase):
 
     def test_random_str(self):
