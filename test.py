@@ -1,46 +1,37 @@
 from unittest import TestCase
 
 
-def return_random_str_for_test(filename: str, idx) -> str:
+def return_random_str(filename: str, idx) -> str:
     with open(filename) as fin:
         file = list(map(str.strip, fin))
         return file[idx]
 
-class TestCaseMovie1(TestCase):
+
+class TestCaseMovie(TestCase):
 
     def test_random_str(self):
         self.assertEqual(
-            "5;Father of the Bride Part II (1995);Comedy", return_random_str_for_test("/Users/lizaakopova/PycharmProjects/pythonProject1/movies22.csv", 6))
+            "5;Father of the Bride Part II (1995);Comedy", return_random_str("/Users/lizaakopova/PycharmProjects/pythonProject1/movies22.csv", 6))
+
+    def test_random_str2(self):
+        self.assertEqual(
+            "732;His Girl Friday (1940);Comedy|Romance", return_random_str("/Users/lizaakopova/PycharmProjects/pythonProject1/movies22.csv", 733))
+
+    def test_random_str3(self):
+        self.assertEqual(
+            "732;His Girl Friday (1940);Comedy|Romance", return_random_str("/Users/lizaakopova/PycharmProjects/pythonProject1/movies22.csv", 732))
 
 
-class TestCaseMovie2(TestCase):
+class TestCaseSerial(TestCase):
 
     def test_random_str(self):
         self.assertEqual(
-            "732;His Girl Friday (1940);Comedy|Romance", return_random_str_for_test("/Users/lizaakopova/PycharmProjects/pythonProject1/movies22.csv", 733))
+            "Trinkets;Coming Of Age Drama;2;20", return_random_str("/Users/lizaakopova/PycharmProjects/pythonProject1/tv_shows_data.csv", 241))
 
-class TestCaseMovie3(TestCase):
-
-    def test_random_str(self):
+    def test_random_str2(self):
         self.assertEqual(
-            "732;His Girl Friday (1940);Comedy|Romance", return_random_str_for_test("/Users/lizaakopova/PycharmProjects/pythonProject1/movies22.csv", 732))
+            "Ethos;Drama;1;8", return_random_str("/Users/lizaakopova/PycharmProjects/pythonProject1/tv_shows_data.csv", 149))
 
-
-
-class TestCaseSerial1(TestCase):
-
-    def test_random_str(self):
+    def test_random_str3(self):
         self.assertEqual(
-            "Trinkets;Coming Of Age Drama;2;20", return_random_str_for_test("/Users/lizaakopova/PycharmProjects/pythonProject1/tv_shows_data.csv", 241))
-
-class TestCaseSerial2(TestCase):
-
-    def test_random_str(self):
-        self.assertEqual(
-            "Ethos;Drama;1;8", return_random_str_for_test("/Users/lizaakopova/PycharmProjects/pythonProject1/tv_shows_data.csv", 149))
-
-class TestCaseSerial3(TestCase):
-
-    def test_random_str(self):
-        self.assertEqual(
-            "The Crown;Historical Drama;4;40", return_random_str_for_test("/Users/lizaakopova/PycharmProjects/pythonProject1/tv_shows_data.csv", 4))
+            "The Crown;Historical Drama;4;40", return_random_str("/Users/lizaakopova/PycharmProjects/pythonProject1/tv_shows_data.csv", 4))
